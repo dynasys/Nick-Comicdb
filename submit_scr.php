@@ -37,9 +37,13 @@
             echo "Issue insert successful!";
             
             mysql_close($connection);
+            
+            header("location:admin_home.php");
         }   
     }
     
-    
+    if(isset($_POST['cancel'])){
+        header("location:admin_home.php");
+    }
     
 ?>

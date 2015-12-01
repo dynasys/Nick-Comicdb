@@ -31,7 +31,6 @@
             WHERE ISBN='$ISBN'";
             
         if (mysql_query($sql,$connection)){
-            mysql_close($connection);
             header("location:admin_home.php");
         }
 
@@ -39,7 +38,7 @@
             die(mysql_error()); 
         }
     
-        
+        mysql_close($connection);
    
     }    
 ?>

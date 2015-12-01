@@ -4,14 +4,7 @@
     <title>Comicdb</title>
 </head>
 <body>
-    <h1>Welcome to Comic DB</h1>
-    <nav>
-        <li><a href="home.php">Home</a></li>
-        <li><a href="search.php">Search</a></li>
-        <li><b>Add new comic</b></li>
-    </nav>
-    <p>Don't see one of your favorite comic books? Fill out this form and we will approve it if its valid!<br>
-        <small>Everything with an * must be filled out</small></p>
+    <h2>Add New Issue</h2>
     <?php 
         include 'submit_scr.php';
     ?>
@@ -28,7 +21,7 @@
         <br>
         *Series:<br>
         <?php
-            mysql_connect('localhost', 'root', '');
+            $connection = mysql_connect('localhost', 'root', '');
             mysql_select_db('comics');
         
         
@@ -91,7 +84,8 @@
         <input type="radio" name="radio" value="single">Single Issue<br>
         <input type="radio" name="radio" value="tpb">Trade Paper Back<br>
         <input type="radio" name="radio" value="web">Web Comic<br>
-        <input type="submit" name="submit" value="submit"><br>      
+        <input type="submit" name="submit" value="submit">
+        <input type="submit" name="cancel" value="cancel"<br>      
     </form>
 </body>
 </html>

@@ -1,16 +1,16 @@
 <?php
     if(isset($_POST['create'])){
-        header("location:create_series.php");
+        header("location:create_publisher.php");
     }
     if(isset($_POST['delete'])){
-        $sid= $_POST['sid'];
+        $pid= $_POST['pid'];
         $connection = mysql_connect("localhost", "root", "");
         $db = mysql_select_db ("comics", $connection);
-        $sql = "DELETE FROM series WHERE Series_ID = '$sid'";
+        $sql = "DELETE FROM publisher WHERE Publisher_ID = '$pid'";
         $result = mysql_query($sql);
     
         if ($result){
-            echo "Deleted series with ID $sid";
+            echo "Deleted publisher with ID $pid";
         }
         else{
             die(mysql_error());
@@ -20,9 +20,10 @@
 
     }
     if(isset($_POST['edit'])){
-        $sid=$_POST['sid'];
-        header("location:series_edit_scr.php?sid=".urlencode("$sid"));
+        $pid=$_POST['pid'];
+        header("location:publisher_edit_scr.php?pid=".urlencode("$pid"));
     }
+    
 
 
 ?>

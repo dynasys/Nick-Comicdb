@@ -9,10 +9,11 @@
     <h3>Edit/Delete Issues</h3>
     <nav>
         <li><a href="author_edit.php">Edit/Delete Author</a></li>
-        <li><a href="edit_artist">Edit/Delete Artist</a></li>
+        <li><a href="artist_edit.php">Edit/Delete Artist</a></li>
     </nav>
-        <li><a href="edit_publisher">Edit/Delete Publisher</a></li>
-        <li><a href="edit_series">Edit/Delete Series</a></li>
+        <li><a href="publisher_edit.php">Edit/Delete Publisher</a></li>
+        <li><a href="series_edit.php">Edit/Delete Series</a></li>
+        <li><a href="home.php">ComicDB Home</a></li>
     <h4>Here are all the issues in the database:</h4>
     <table id="issuetbl">
         <caption><h4>Issues</h4></caption>
@@ -35,13 +36,13 @@
     
     
     <?php
-        include "series_button.php";
+        include "issue_button.php";
         $connection = mysql_connect("localhost", "root", "");
         $db = mysql_select_db("comics", $connection);
         $query = mysql_query("SELECT * FROM issue", $connection);
-    if($query == FALSE) { 
-    die(mysql_error()); // TODO: better error handling
-}
+        if($query == FALSE) { 
+            die(mysql_error()); // TODO: better error handling
+        }
 
         while ($row = mysql_fetch_array($query, MYSQL_ASSOC)){  
             $pub_query = mysql_query('SELECT Name FROM publisher WHERE Publisher_ID ='.$row["publisher"].'',$connection );
@@ -84,4 +85,13 @@
     
     ?>
     </table>    
+    
+    <form method="post">
+        <input type="submit" value="Create New..." name="create">
+    </form>
+    <?php
+        if (isset($_POST['create'])){
+            header("location:submit.php");
+        }
+    ?>
 </body>

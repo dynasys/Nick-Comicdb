@@ -13,6 +13,7 @@
     </nav>
         <li><a href="publisher_edit.php">Edit/Delete Publisher</a></li>
         <li><a href="series_edit.php">Edit/Delete Series</a></li>
+        <li><a href="home.php">ComicDB Home</a></li>
     <b>Here are all the authors in the database:</b>
      <table id="authortbl">
         <caption><h4>Issues</h4></caption>
